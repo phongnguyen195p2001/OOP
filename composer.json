@@ -1,0 +1,19 @@
+{
+  "name": "phong/oop",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "phong",
+      "email": "phongnguyen195p2001@gmail.com"
+    }
+  ],
+  "require": {
+    "symfony/var-dumper": "^6.0",
+    "php": ">=8.0"
+  },
+  "config": { "platform-check": false }
+}
