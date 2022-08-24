@@ -78,6 +78,8 @@ thức công khai do đối tượng đó cung cấp.
 
 Tính chất này giúp tăng tính bảo mật cho đối tượng và tránh tình trạng dữ liệu bị hư hỏng ngoài ý muốn.
 
+![img](https://itviec.com/blog/wp-content/uploads/2020/09/oop-la-gi-1.jpg)
+
 ### Tính kế thừa (Inheritance)
 
 Đây là tính chất được sử dụng khá nhiều. Tính kế thừa cho phép xây dựng một lớp mới (lớp Con), kế thừa và tái sử dụng
@@ -199,4 +201,76 @@ $citroen = new citroen("Citroen");
 echo $citroen->intro();
 ?>
 ```
+
+### Hàm __construct
+
+Một hàm tạo cho phép bạn khởi tạo các thuộc tính của đối tượng khi tạo đối tượng.
+
+```php
+<?php
+class Fruit {
+  public $name;
+  public $color;
+
+  function __construct($name) {
+    $this->name = $name;
+  }
+  function get_name() {
+    return $this->name;
+  }
+}
+
+$apple = new Fruit("Apple");
+echo $apple->get_name();
+?>
+```
+
+### Hàm __destruct
+
+Một trình hủy được gọi khi đối tượng bị hủy hoặc tập lệnh bị dừng hoặc thoát.
+
+```php
+<?php
+class Fruit {
+  public $name;
+  public $color;
+
+  function __construct($name) {
+    $this->name = $name;
+  }
+  function __destruct() {
+    echo "The fruit is {$this->name}.";
+  }
+}
+
+$apple = new Fruit("Apple");
+?>
+```
+
+### Access Modifiers
+
+Các thuộc tính và phương thức có thể có các công cụ sửa đổi quyền truy cập kiểm soát nơi chúng có thể được truy cập.
+
+- **public** - thuộc tính hoặc phương thức có thể được truy cập từ mọi nơi. Đây là mặc định.
+- **protected** - thuộc tính hoặc phương thức có thể được truy cập trong lớp và bởi các lớp dẫn xuất từ lớp đó.
+- **private** - thuộc tính hoặc phương thức CHỈ có thể được truy cập trong lớp.
+
+```php
+<?php
+class Fruit {
+  public $name;
+  protected $color;
+  private $weight;
+}
+
+$mango = new Fruit();
+$mango->name = 'Mango'; // OK
+$mango->color = 'Yellow'; // ERROR
+$mango->weight = '300'; // ERROR
+?>
+```
+
+### Class Constants
+
+Không thể thay đổi các hằng sau khi nó được khai báo.
 
