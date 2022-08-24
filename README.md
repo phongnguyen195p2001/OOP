@@ -102,6 +102,55 @@ $animal->makeSound();
 ?>
 ```
 
+### Tính đa hình (Polymorphism)
+
+Tính đa hình trong lập trình OOP cho phép các đối tượng khác nhau thực thi chức năng giống nhau theo những cách khác
+nhau.
+
+```php
+<?php  
+class Module  
+{  
+    function produce(){}  
+}  
+
+class Product extends Module  
+{  
+function produce()  
+    {  
+    print "Product has been generated.</br>";  
+    }  
+}  
+
+class Brand extends Module  
+{  
+    function produce()  
+    {  
+     print "Brand has been generated.</br>";  
+    }  
+}  
+
+class Category extends Module  
+{  
+    function produce()  
+    {  
+        print "Category has been generated.";  
+    }  
+}  
+   
+$results=array(2);  
+  
+$results[0]=new Product();  
+$results[1]=new Brand();  
+$results[2]=new Category();  
+  
+for($i=0;$i<3;$i++)  
+{  
+    $results[$i]->produce();  
+}  
+?>  
+```
+
 ### Tính trừu tượng (Abstraction)
 
 Tính trừu tượng giúp loại bỏ những thứ phức tạp, không cần thiết của đối tượng và chỉ tập trung vào những gì cốt lõi,
