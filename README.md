@@ -274,3 +274,20 @@ $mango->weight = '300'; // ERROR
 
 Không thể thay đổi các hằng sau khi nó được khai báo.
 
+Hằng số lớp có thể hữu ích nếu bạn cần xác định một số dữ liệu hằng số trong một lớp.
+
+Hằng số lớp được khai báo bên trong một lớp với từ khóa const.
+
+Chúng ta có thể truy cập một hằng số từ bên ngoài lớp bằng cách sử dụng tên lớp theo sau là toán tử phân giải phạm
+vi (: :) theo sau là tên hằng số, như ở đây:
+
+```php
+<?php
+class Goodbye {
+  const LEAVING_MESSAGE = "Thank you for visiting W3Schools.com!";
+}
+
+echo Goodbye::LEAVING_MESSAGE;
+?>
+```
+
