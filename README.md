@@ -1,3 +1,11 @@
+# Bài tập OOP in PHP
+
+Thực hiện bởi : [Nguyễn Đình Phong](https://github.com/phongnguyen195p2001)
+
+Cách sử dụng kết quả:
+
+- Download code và run code tại đường dẫn https://github.com/phongnguyen195p2001/OOP
+
 # OOP
 
 **OOP** ( Viết tắt của Object Oriented Progamming ) - Lập trình hướng đối tượng là một phương pháp lập trình dựa trên
