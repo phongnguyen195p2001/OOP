@@ -111,6 +111,29 @@ Tính chất này giúp tăng tính bảo mật cho đối tượng và tránh t
 
 ![img](https://itviec.com/blog/wp-content/uploads/2020/09/oop-la-gi-1.jpg)
 
+#### Access Modifiers
+
+Các thuộc tính và phương thức có thể có các công cụ sửa đổi quyền truy cập kiểm soát nơi chúng có thể được truy cập.
+
+- **public** - thuộc tính hoặc phương thức có thể được truy cập từ mọi nơi. Đây là mặc định.
+- **protected** - thuộc tính hoặc phương thức có thể được truy cập trong lớp và bởi các lớp dẫn xuất từ lớp đó.
+- **private** - thuộc tính hoặc phương thức CHỈ có thể được truy cập trong lớp.
+
+```php
+<?php
+class Fruit {
+  public $name;
+  protected $color;
+  private $weight;
+}
+
+$mango = new Fruit();
+$mango->name = 'Mango'; // OK
+$mango->color = 'Yellow'; // ERROR
+$mango->weight = '300'; // ERROR
+?>
+```
+
 ### Tính kế thừa (Inheritance)
 
 Đây là tính chất được sử dụng khá nhiều. Tính kế thừa cho phép xây dựng một lớp mới (lớp Con), kế thừa và tái sử dụng
@@ -278,29 +301,6 @@ $apple = new Fruit("Apple");
 ?>
 ```
 
-### Access Modifiers
-
-Các thuộc tính và phương thức có thể có các công cụ sửa đổi quyền truy cập kiểm soát nơi chúng có thể được truy cập.
-
-- **public** - thuộc tính hoặc phương thức có thể được truy cập từ mọi nơi. Đây là mặc định.
-- **protected** - thuộc tính hoặc phương thức có thể được truy cập trong lớp và bởi các lớp dẫn xuất từ lớp đó.
-- **private** - thuộc tính hoặc phương thức CHỈ có thể được truy cập trong lớp.
-
-```php
-<?php
-class Fruit {
-  public $name;
-  protected $color;
-  private $weight;
-}
-
-$mango = new Fruit();
-$mango->name = 'Mango'; // OK
-$mango->color = 'Yellow'; // ERROR
-$mango->weight = '300'; // ERROR
-?>
-```
-
 ### Class Constants
 
 Không thể thay đổi các hằng sau khi nó được khai báo.
@@ -315,7 +315,7 @@ vi (: :) theo sau là tên hằng số, như ở đây:
 ```php
 <?php
 class Goodbye {
-  const LEAVING_MESSAGE = "Thank you for visiting W3Schools.com!";
+  const LEAVING_MESSAGE = "Thank you for visiting https://github.com/phongnguyen195p2001/OOP !";
 }
 
 echo Goodbye::LEAVING_MESSAGE;
