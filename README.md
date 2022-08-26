@@ -12,6 +12,16 @@ Cách sử dụng kết quả:
 khái niệm lớp và đối tượng. OOP tập trung hơn vào cái đối tượng hơn là khai thác logic để thao tác chúng, giúp code dẽ
 quản lý, tái sử dụng được và dễ bảo trì
 
+**Ưu điểm:**
+
+- OOP nhanh hơn và dễ thực thi hơn
+
+- OOP cung cấp một cấu trúc rõ ràng cho các chương trình
+
+- OOP giúp giữ cho mã PHP KHÔ "Không lặp lại chính bạn" và làm cho mã dễ bảo trì, sửa đổi và gỡ lỗi hơn
+
+- OOP giúp bạn có thể tạo các ứng dụng có thể tái sử dụng đầy đủ với ít mã hơn và thời gian phát triển ngắn hơn
+
 ## Một vài khái niệm cơ sở về OOP
 
 ### Class và Object
@@ -24,8 +34,10 @@ quản lý, tái sử dụng được và dễ bảo trì
 
 - Phương thức (Method): là những hành vi mà đối tượng có thể thực hiện
 
+- Lớp học không là gì nếu không có đồ vật! Chúng ta có thể tạo nhiều đối tượng từ một lớp. Mỗi đối tượng có tất cả các
+  thuộc tính và phương thức được định nghĩa trong lớp, nhưng chúng sẽ có các giá trị thuộc tính khác nhau.
+
 ```php
-<?php
 <?php
 class Fruit {
   // Properties
@@ -63,6 +75,9 @@ Lớp cũng sẽ bao gồm 2 thông tin là thuộc tính và phương thức.
 
 Một đối tượng sẽ được xem là một thực thể của lớp.
 
+Một lớp được định nghĩa bằng cách sử dụng từ khóa class, theo sau là tên của lớp và một cặp dấu ngoặc nhọn ({}). Tất cả
+các thuộc tính và phương pháp của nó đều đi vào bên trong dấu ngoặc nhọn:
+
 ```php
 <?php
 class Fruit {
@@ -87,6 +102,58 @@ $banana->set_name('Banana');
 echo $apple->get_name();
 echo "<br>";
 echo $banana->get_name();
+?>
+```
+
+### Sự khác biệt giữa Class và Objects
+
+**Example:**
+
+![img](image/img1.png)
+
+### Các $this từ khóa
+
+- Từ khóa $this đề cập đến đối tượng hiện tại và chỉ có sẵn bên trong các phương thức.
+
+```php
+<?php
+class Fruit {
+  public $name;
+}
+$apple = new Fruit();
+?>
+```
+
+- Vì vậy, chúng ta có thể thay đổi giá trị của thuộc tính $name ở đâu? Có hai cách:
+
+1. Bên trong lớp (bằng cách thêm phương thức set_name () và sử dụng $this):
+
+```php
+<?php
+class Fruit {
+  public $name;
+  function set_name($name) {
+    $this->name = $name;
+  }
+}
+$apple = new Fruit();
+$apple->set_name("Apple");
+
+echo $apple->name;
+?>
+```
+
+2. Bên ngoài lớp (bằng cách thay đổi trực tiếp giá trị thuộc tính):
+
+```php
+<?php
+class Fruit {
+  public $name;
+}
+$apple = new Fruit();
+$apple->name = "Apple";
+
+echo $apple->name;
 ?>
 ```
 
