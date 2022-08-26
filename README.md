@@ -22,6 +22,17 @@ quản lý, tái sử dụng được và dễ bảo trì
 
 - OOP giúp bạn có thể tạo các ứng dụng có thể tái sử dụng đầy đủ với ít mã hơn và thời gian phát triển ngắn hơn
 
+- OOP mô hình hóa những thứ phức tạp dưới dạng cấu trúc đơn giản.
+
+- Code OOP có thể sử dụng lại, giúp tiết kiệm tài nguyên.
+
+- Giúp sửa lỗi dễ dàng hơn. So với việc tìm lỗi ở nhiều vị trí trong code thì tìm lỗi trong các lớp (được cấu trúc từ
+  trước) đơn giản và ít mất thời gian hơn.
+
+- Có tính bảo mật cao, bảo vệ thông tin thông qua đóng gói.
+
+- Dễ mở rộng dự án.
+
 ## Một vài khái niệm cơ sở về OOP
 
 ### Class và Object
@@ -156,15 +167,6 @@ $apple->name = "Apple";
 echo $apple->name;
 ?>
 ```
-
-## Ưu điểm của lập trình hướng đối tượng OOP
-
-- OOP mô hình hóa những thứ phức tạp dưới dạng cấu trúc đơn giản.
-- Code OOP có thể sử dụng lại, giúp tiết kiệm tài nguyên.
-- Giúp sửa lỗi dễ dàng hơn. So với việc tìm lỗi ở nhiều vị trí trong code thì tìm lỗi trong các lớp (được cấu trúc từ
-  trước) đơn giản và ít mất thời gian hơn.
-- Có tính bảo mật cao, bảo vệ thông tin thông qua đóng gói.
-- Dễ mở rộng dự án.
 
 ## 4 đặc tính cơ bản của OOP
 
