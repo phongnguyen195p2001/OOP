@@ -205,25 +205,36 @@ $mango->weight = '300'; // ERROR
 
 ### Tính kế thừa (Inheritance)
 
-Đây là tính chất được sử dụng khá nhiều. Tính kế thừa cho phép xây dựng một lớp mới (lớp Con), kế thừa và tái sử dụng
-các thuộc tính, phương thức dựa trên lớp cũ (lớp Cha) đã có trước đó.
+Kế thừa trong OOP = Khi một lớp dẫn xuất từ một lớp khác.
 
-Các lớp Con kế thừa toàn bộ thành phần của lớp Cha và không cần phải định nghĩa lại. Lớp Con có thể mở rộng các thành
-phần kế thừa hoặc bổ sung những thành phần mới.
+Lớp con sẽ kế thừa tất cả các thuộc tính và phương thức public và protected từ lớp cha. Ngoài ra, nó có thể có các thuộc
+tính và phương thức riêng.
+
+Một lớp kế thừa được định nghĩa bằng từ khóa **Extends**.
 
 ```php
-interface Animal {
-  public function makeSound();
-}
-
-class Cat implements Animal {
-  public function makeSound() {
-    echo "Meow";
+<?php
+class Fruit {
+  public $name;
+  public $color;
+  public function __construct($name, $color) {
+    $this->name = $name;
+    $this->color = $color;
+  }
+  public function intro() {
+    echo "The fruit is {$this->name} and the color is {$this->color}.";
   }
 }
 
-$animal = new Cat();
-$animal->makeSound();
+// Strawberry is inherited from Fruit
+class Strawberry extends Fruit {
+  public function message() {
+    echo "Am I a fruit or a berry? ";
+  }
+}
+$strawberry = new Strawberry("Strawberry", "red");
+$strawberry->message();
+$strawberry->intro();
 ?>
 ```
 
