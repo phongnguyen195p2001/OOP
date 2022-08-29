@@ -238,59 +238,95 @@ $strawberry->intro();
 ?>
 ```
 
+#### Overriding Inherited Methods(Ghi đè các phương thức kế thừa)
+
+Các phương thức kế thừa có thể được ghi đè bằng cách định nghĩa lại các phương thức (sử dụng cùng một tên) trong lớp
+con.
+
+```php
+<?php
+class Fruit {
+  public $name;
+  public $color;
+  public function __construct($name, $color) {
+    $this->name = $name;
+    $this->color = $color; 
+  }
+  public function intro() {
+    echo "The fruit is {$this->name} and the color is {$this->color}."; 
+  }
+}
+
+class Strawberry extends Fruit {
+  public $weight;
+  public function __construct($name, $color, $weight) {
+    $this->name = $name;
+    $this->color = $color;
+    $this->weight = $weight; 
+  }
+  public function intro() {
+    echo "The fruit is {$this->name}, the color is {$this->color}, and the weight is {$this->weight} gram."; 
+  }
+}
+
+$strawberry = new Strawberry("Strawberry", "red", 50);
+$strawberry->intro();
+?>
+```
+
 ### Tính đa hình (Polymorphism)
 
 Tính đa hình trong lập trình OOP cho phép các đối tượng khác nhau thực thi chức năng giống nhau theo những cách khác
 nhau.
 
 ```php
-<?php  
-class Module  
-{  
-    function produce(){}  
-}  
+<?php
+// Interface definition
+interface Animal {
+  public function makeSound();
+}
 
-class Product extends Module  
-{  
-function produce()  
-    {  
-    print "Product has been generated.</br>";  
-    }  
-}  
+// Class definitions
+class Cat implements Animal {
+  public function makeSound() {
+    echo " Meow ";
+  }
+}
 
-class Brand extends Module  
-{  
-    function produce()  
-    {  
-     print "Brand has been generated.</br>";  
-    }  
-}  
+class Dog implements Animal {
+  public function makeSound() {
+    echo " Bark ";
+  }
+}
 
-class Category extends Module  
-{  
-    function produce()  
-    {  
-        print "Category has been generated.";  
-    }  
-}  
-   
-$results=array(2);  
-  
-$results[0]=new Product();  
-$results[1]=new Brand();  
-$results[2]=new Category();  
-  
-for($i=0;$i<3;$i++)  
-{  
-    $results[$i]->produce();  
-}  
-?>  
+class Mouse implements Animal {
+  public function makeSound() {
+    echo " Squeak ";
+  }
+}
+
+// Create a list of animals
+$cat = new Cat();
+$dog = new Dog();
+$mouse = new Mouse();
+$animals = array($cat, $dog, $mouse);
+
+// Tell the animals to make a sound
+foreach($animals as $animal) {
+  $animal->makeSound();
+}
+?>
 ```
 
 ### Tính trừu tượng (Abstraction)
 
-Tính trừu tượng giúp loại bỏ những thứ phức tạp, không cần thiết của đối tượng và chỉ tập trung vào những gì cốt lõi,
-quan trọng.
+Abstract classes và phương thức là khi lớp cha có một phương thức được đặt tên, nhưng cần class(es) con của nó để điền
+các tác vụ.
+
+Một lớp trừu tượng là một lớp có chứa ít nhất một phương thức trừu tượng. Một phương thức trừu tượng là một phương thức
+được khai báo, nhưng không được triển khai trong mã.
+
+Một lớp hoặc phương thức trừu tượng được định nghĩa bằng từ khóa **abstract**:
 
 ```php
 <?php
@@ -381,6 +417,103 @@ $apple = new Fruit("Apple");
 ?>
 ```
 
+### Traits
+
+- PHP chỉ hỗ trợ kế thừa đơn: một lớp con chỉ có thể kế thừa từ một lớp cha duy nhất.
+- Traits được sử dụng để khai báo các phương thức có thể được sử dụng trong nhiều lớp. Traits có thể có các phương
+  thức và phương thức trừu tượng có thể được sử dụng trong nhiều lớp và các phương thức có thể có bất kỳ công cụ sửa đổi
+  quyền truy cập nào (public, private hoặc protected).
+
+```php
+<?php
+trait message1 {
+public function msg1() {
+    echo "OOP is fun! ";
+  }
+}
+
+class Welcome {
+  use message1;
+}
+
+$obj = new Welcome();
+$obj->msg1();
+?>
+```
+
+### Static Methods
+
+- Phương thức static có thể được gọi trực tiếp - mà không cần tạo một thể hiện của lớp trước.
+
+```php
+<?php
+class greeting {
+  public static function welcome() {
+    echo "Hello World!";
+  }
+}
+
+// Call static method
+greeting::welcome();
+?>
+ ```
+
+### Static Properties
+
+- Các thuộc tính static có thể được gọi trực tiếp - mà không cần tạo một thể hiện của một lớp.
+
+```php
+<?php
+class pi {
+  public static $value = 3.14159;
+}
+
+// Get static property
+echo pi::$value;
+?>
+```
+
+### Namespaces
+
+Namespaces là các vòng loại giải quyết hai vấn đề khác nhau:
+
+1. Chúng cho phép tổ chức tốt hơn bằng cách nhóm các lớp làm việc cùng nhau để thực hiện một nhiệm vụ
+
+2. Chúng cho phép sử dụng cùng một tên cho nhiều lớp
+
+```php
+namespace Html;
+class Table {
+  public $title = "";
+  public $numRows = 0;
+  public function message() {
+    echo "<p>Table '{$this->title}' has {$this->numRows} rows.</p>";
+  }
+}
+$table = new Table();
+$table->title = "My table";
+$table->numRows = 5;
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$table->message();
+?>
+
+</body>
+</html>
+```
+
+### Extend vs implements
+
+**extends**: mở rộng. Kế thừa và mở rộng từ một lớp (class) có sẵn.
+
+**implements**: triển khai. Thực hiện triển khai (định nghĩa) các phương thức đã được khai báo từ một hoặc nhiều giao tiếp (
+interface).
+
 ### Class Constants
 
 Không thể thay đổi các hằng sau khi nó được khai báo.
@@ -401,5 +534,6 @@ class Goodbye {
 echo Goodbye::LEAVING_MESSAGE;
 ?>
 ```
+
 
 
