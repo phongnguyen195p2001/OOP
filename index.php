@@ -7,7 +7,7 @@ $link = 'https://raw.githubusercontent.com/lydiahallie/javascript-questions/mast
 
 $questions = new questions();
 $questions->readMdFile($link);
-$array = $questions->getQuestions();
+$array = $questions->all();
 //dump($array[0]->getAnswer());
 dd($array);
 

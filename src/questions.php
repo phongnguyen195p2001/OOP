@@ -6,7 +6,7 @@ use App\question;
 
 class questions
 {
-    protected array $questions;
+    protected array $questions = [];
 
     public function __construct(array $questions = [])
     {
@@ -36,26 +36,42 @@ class questions
         array_shift($content);
         foreach ($content as $value) {
             $answer = explode('####', $value);
-            array_shift($answer);
-            $answer = implode("" ,$answer);
-
-            $question = explode('####', $value);
-            array_pop($question);
-            $question = implode("" , $question);
-
-            $question = strip_tags($question);
-            $question = trim(preg_replace('/\s+/', ' ', $question));
-            $question = str_replace("Đáp án", '', $question);
-            $answer = strip_tags($answer);
-            $answer = trim(preg_replace('/\s+/', ' ', $answer));
-
-            $ojb[] = new question($question,$answer);
+            $this->questions[] = new question($answer[0],$answer[1]);
+//            array_shift($answer);
+//            $answer = implode("" ,$answer);
+//
+//            $question = explode('####', $value);
+//            array_pop($question);
+//            $question = implode("" , $question);
+//
+//            $question = strip_tags($question);
+//            $question = trim(preg_replace('/\s+/', ' ', $question));
+//            $question = str_replace("Đáp án", '', $question);
+//            $answer = strip_tags($answer);
+//            $answer = trim(preg_replace('/\s+/', ' ', $answer));
+//
+//            $ojb[] = new question($question,$answer);
         }
-        $this->questions = $ojb;
-        return $ojb;
+//        $this->questions = $ojb;
+//        return $ojb;
+        return $this->questions;
 
 //        $this->questions = $content;
 //        return $content;
+    }
+
+    public function getQuestion(int | array $indexes){
+        return $this->questions[$indexes] ?: throw new Exception("No have question");
+    }
+
+    public function all(){
+        return $this->questions;
+    }
+
+    public function add($question){
+        $this->questions;
+        array_push($this->questions,$question);
+        return $this->questions;
     }
 
 }
