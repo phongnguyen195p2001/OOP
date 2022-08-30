@@ -443,7 +443,7 @@ $obj->msg1();
 
 ### Static Methods
 
-- Phương thức static có thể được gọi trực tiếp - mà không cần tạo một thể hiện của lớp trước.
+- Phương thức static có thể được gọi trực tiếp - mà không cần khởi tạo một lớp trước.
 
 ```php
 <?php
