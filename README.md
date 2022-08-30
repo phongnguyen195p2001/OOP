@@ -18,7 +18,7 @@ quản lý, tái sử dụng được và dễ bảo trì
 
 - OOP cung cấp một cấu trúc rõ ràng cho các chương trình
 
-- OOP giúp giữ cho mã PHP KHÔ "Không lặp lại chính bạn" và làm cho mã dễ bảo trì, sửa đổi và gỡ lỗi hơn
+- OOP giúp giữ cho mã PHP "Không lặp lại chính bạn" và làm cho mã dễ bảo trì, sửa đổi và gỡ lỗi hơn
 
 - OOP giúp bạn có thể tạo các ứng dụng có thể tái sử dụng đầy đủ với ít mã hơn và thời gian phát triển ngắn hơn
 
@@ -45,8 +45,8 @@ quản lý, tái sử dụng được và dễ bảo trì
 
 - Phương thức (Method): là những hành vi mà đối tượng có thể thực hiện
 
-- Lớp học không là gì nếu không có đồ vật! Chúng ta có thể tạo nhiều đối tượng từ một lớp. Mỗi đối tượng có tất cả các
-  thuộc tính và phương thức được định nghĩa trong lớp, nhưng chúng sẽ có các giá trị thuộc tính khác nhau.
+- Class không là gì nếu không có object! Chúng ta có thể tạo nhiều đối tượng từ một class. Mỗi đối tượng có tất cả các
+  thuộc tính và phương thức được định nghĩa trong clss, nhưng chúng sẽ có các giá trị thuộc tính khác nhau.
 
 ```php
 <?php
@@ -122,7 +122,7 @@ echo $banana->get_name();
 
 ![img](image/img1.png)
 
-### Các $this từ khóa
+### $this
 
 - Từ khóa $this đề cập đến đối tượng hiện tại và chỉ có sẵn bên trong các phương thức.
 
@@ -205,7 +205,7 @@ $mango->weight = '300'; // ERROR
 
 ### Tính kế thừa (Inheritance)
 
-Kế thừa trong OOP = Khi một lớp dẫn xuất từ một lớp khác.
+Kế thừa trong OOP là khi một lớp dẫn xuất từ một lớp khác.
 
 Lớp con sẽ kế thừa tất cả các thuộc tính và phương thức public và protected từ lớp cha. Ngoài ra, nó có thể có các thuộc
 tính và phương thức riêng.
