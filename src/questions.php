@@ -68,10 +68,4 @@ class questions
         return $this->questions;
     }
 
-    public function add($question){
-        $this->questions;
-        array_push($this->questions,$question);
-        return $this->questions;
-    }
-
 }
