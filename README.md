@@ -176,6 +176,14 @@ Tính đóng gói cho phép che giấu thông tin và những tính chất xử 
 tác động trực tiếp đến dữ liệu bên trong và làm thay đổi trạng thái của đối tượng mà bắt buộc phải thông qua các phương
 thức công khai do đối tượng đó cung cấp.
 
+- Tính năng đóng gói có thể được sử dụng nếu các thuộc tính của đối tượng là private và cập nhật chúng thông qua các phương thức public.
+
+- Việc đóng gói trong PHP có thể đạt được bằng cách sử dụng các bộ định nghĩa truy cập.
+
+- Nó rất cẩn thận về khái niệm kế thừa OOPs vì nhiều lần kế thừa có thể làm suy yếu khái niệm đóng gói.
+
+- Kế thừa tiết lộ một số chi tiết của lớp cha, phá vỡ tính đóng gói một cách hiệu quả.
+
 Tính chất này giúp tăng tính bảo mật cho đối tượng và tránh tình trạng dữ liệu bị hư hỏng ngoài ý muốn.
 
 ![img](https://itviec.com/blog/wp-content/uploads/2020/09/oop-la-gi-1.jpg)
@@ -203,7 +211,7 @@ $mango->weight = '300'; // ERROR
 ?>
 ```
 
-### Tính kế thừa (Inheritance)
+  ### Tính kế thừa (Inheritance)
 
 Kế thừa trong OOP là khi một lớp dẫn xuất từ một lớp khác.
 
